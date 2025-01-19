@@ -11,7 +11,7 @@ from phi.agent import Agent
 from phi.model.google import Gemini
 from phi.tools.tavily import TavilyTools
 from tempfile import NamedTemporaryFile
-from constants import SYSTEM_PROMPT, INSTRUCTIONS
+from Constants import SYSTEM_PROMPT, INSTRUCTIONS
 
 os.environ['TAVILY_API_KEY'] = st.secrets['TAVILY_KEY']
 os.environ['GOOGLE_API_KEY'] = st.secrets['GEMINI_KEY']
@@ -74,10 +74,10 @@ def main():
     
     with tab_examples:
         example_images = {
-            "Coat": "images/hide_and_seek.jpg",
-            "shoe": "images/bournvita.jpg",
-            "Jeans": "images/lays.jpg",
-            "Sliders": "images/shampoo.jpg"
+            "Coat": "images/coat.jpg",
+            "shoe": "images/shoe.jpg",
+            "Jeans": "images/jeans.jpg",
+            "Sliders": "images/Sliders.jpg"
         }
         
         cols = st.columns(4)
