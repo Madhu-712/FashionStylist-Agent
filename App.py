@@ -74,9 +74,9 @@ def main():
     
     with tab_examples:
         example_images = {
-            "Coat": "images/coat.jpg",
-            "shoe": "images/shoe.jpg",
-            "Jeans": "images/jeans.jpg",
+            "Coat": "images/Coat.jpg",
+            "shoe": "images/Shoe.jpg",
+            "Jeans": "images/Jeans.jpg",
             "Sliders": "images/Sliders.jpg"
         }
         
