@@ -76,7 +76,7 @@ def main():
         example_images = {
             "Coat": "images/Coat.jpg",
             "shoe": "images/Shoe.jpg",
-            "Jeans": "images/Jeans.jpg",
+            "Jeans": "images/Pant.jpg",
             "Sliders": "images/Sliders.jpg"
         }
         
