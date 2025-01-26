@@ -22,7 +22,7 @@ Analyze the provided image containing a snippet of song lyrics
     * **Editing Process:** Outline the editing process, including mixing, mastering, and sound design.
     * **Collaboration Tools:** Suggest tools for collaboration with other musicians or producers.
 7. **Additional Resources:** Provide links or references to helpful tutorials, articles, or online resources related to music production and lyric writing.
-
+8. Suggest songs with similar lyrics.
 
 Remember to address the user as if they are a beginner in some aspects but a creative person overall.  Explain any technical terms clearly and provide examples where possible.
 """
