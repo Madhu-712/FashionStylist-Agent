@@ -9,7 +9,7 @@ from PIL import Image
 from io import BytesIO
 from phi.agent import Agent
 from phi.model.google import Gemini
-# from phi.tools.tavily import TavilyTools  #Removed: Not reliably handling image analysis
+from phi.tools.tavily import TavilyTools  #Removed: Not reliably handling image analysis
 from tempfile import NamedTemporaryFile
 from constants import SYSTEM_PROMPT, INSTRUCTIONS
 
