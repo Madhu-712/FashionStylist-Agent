@@ -1,6 +1,6 @@
 
 
-#pip install streamlit phidata google-generativeai Pillow pytesseract
+#pip install streamlit phidata tavily google-generativeai Pillow pytesseract
 
 # app.py
 import streamlit as st
@@ -33,7 +33,7 @@ def resize_image_for_display(image_file):
 @st.cache_resource
 def get_agent():
     return Agent(
-        model=Gemini(id="gemini-2.0-pro-vision-exp"), # Or another suitable large language model
+        model=Gemini(id="gemini-2.0-flash-exp"), # Or another suitable large language model
         system_prompt=SYSTEM_PROMPT,
         instructions=INSTRUCTIONS,
         #tools=[TavilyTools(api_key=os.getenv("TAVILY_API_KEY"))],  # Add Tavily
