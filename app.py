@@ -11,7 +11,7 @@ from io import BytesIO
 from phi.agent import Agent
 from phi.model.google import Gemini
 from phi.tools.tavily import TavilyTools  #Removed: Not reliably handling image analysis
-from tavily.search import TavilyTools
+#from tavily.search import TavilyTools
 from tempfile import NamedTemporaryFile
 from constants import SYSTEM_PROMPT, INSTRUCTIONS
 
@@ -36,7 +36,7 @@ def get_agent():
         model=Gemini(id="gemini-2.0-pro-vision-exp"), # Or another suitable large language model
         system_prompt=SYSTEM_PROMPT,
         instructions=INSTRUCTIONS,
-        tools=[TavilyTools(api_key=os.getenv("TAVILY_API_KEY"))],  # Add Tavily
+        #tools=[TavilyTools(api_key=os.getenv("TAVILY_API_KEY"))],  # Add Tavily
         markdown=True,
     )
 
