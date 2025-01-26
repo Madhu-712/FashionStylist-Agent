@@ -4,7 +4,7 @@
 
 # app.py
 import streamlit as st
-import os
+import os tavily
 from PIL import Image
 from io import BytesIO
 from phi.agent import Agent
