@@ -30,9 +30,16 @@ def generate_audio(text_input):
     agent = get_agent()
     with st.spinner("Generating audio..."):
         response = agent.run("Convert the following text to audio", inputs={"text": text_input})
-        print(response)  # Debugging line
-        audio_content = response.outputs["audio"]
-        return audio_content
+        st.write(response)  # Debugging line
+        if "audio" in response:
+            audio_content = response["audio"]
+            return audio_content
+        else:
+            st.error("The response does not contain 'audio'. Please check the response structure.")
+            return None
+
+
+
 
 
 # Save audio to a temporary file
