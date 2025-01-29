@@ -23,7 +23,6 @@ def get_agent():
         instructions=INSTRUCTIONS,
     )
 
-# Function to generate audio from text
 
 
 def generate_audio(text_input):
@@ -31,12 +30,14 @@ def generate_audio(text_input):
     with st.spinner("Generating audio..."):
         response = agent.run("Convert the following text to audio", inputs={"text": text_input})
         st.write(response)  # Debugging line
-        if "audio" in response:
-            audio_content = response["audio"]
+        if hasattr(response, 'outputs') and "audio" in response.outputs:
+            audio_content = response.outputs["audio"]
             return audio_content
         else:
             st.error("The response does not contain 'audio'. Please check the response structure.")
             return None
+
+
 
 
 
@@ -47,7 +48,6 @@ def save_audio(audio_bytes):
     with NamedTemporaryFile(suffix=".mp3", delete=False) as audio_file:
         audio_file.write(audio_bytes)
         return audio_file.name
-
 
 
 def main():
@@ -79,6 +79,8 @@ def main():
                 os.unlink(audio_file_path)
         else:
             st.error("Please enter some text before generating audio!")
+
+
 
 
 
