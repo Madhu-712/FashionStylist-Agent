@@ -48,7 +48,8 @@ def save_audio(audio_bytes):
         audio_file.write(audio_bytes)
         return audio_file.name
 
-# Main Streamlit app
+
+
 def main():
     st.title("🎤 Text-to-Audio Generator")
     st.write("Enter text below and convert it to high-quality audio.")
@@ -60,24 +61,27 @@ def main():
         if user_text.strip():
             # Generate audio from the entered text
             audio_bytes = generate_audio(user_text)
+            if audio_bytes:
+                # Save the generated audio
+                audio_file_path = save_audio(audio_bytes)
 
-            # Save the generated audio
-            audio_file_path = save_audio(audio_bytes)
+                # Provide a download button for the generated audio
+                with open(audio_file_path, "rb") as audio_file:
+                    st.audio(audio_bytes, format="audio/mp3", start_time=0)
+                    st.download_button(
+                        label="📥 Download Audio",
+                        data=audio_file,
+                        file_name="generated_audio.mp3",
+                        mime="audio/mpeg",
+                    )
 
-            # Provide a download button for the generated audio
-            with open(audio_file_path, "rb") as audio_file:
-                st.audio(audio_bytes, format="audio/mp3", start_time=0)
-                st.download_button(
-                    label="📥 Download Audio",
-                    data=audio_file,
-                    file_name="generated_audio.mp3",
-                    mime="audio/mpeg",
-                )
-            
-            # Clean up the temporary audio file
-            os.unlink(audio_file_path)
+                # Clean up the temporary audio file
+                os.unlink(audio_file_path)
         else:
             st.error("Please enter some text before generating audio!")
+
+
+
 
 if __name__ == "__main__":
     st.set_page_config(
