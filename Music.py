@@ -24,12 +24,16 @@ def get_agent():
     )
 
 # Function to generate audio from text
+
+
 def generate_audio(text_input):
     agent = get_agent()
     with st.spinner("Generating audio..."):
         response = agent.run("Convert the following text to audio", inputs={"text": text_input})
+        print(response)  # Debugging line
         audio_content = response.outputs["audio"]
         return audio_content
+
 
 # Save audio to a temporary file
 def save_audio(audio_bytes):
