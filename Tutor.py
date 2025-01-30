@@ -93,11 +93,13 @@ def main():
     st.title("📘 AI-Powered Tutor Agent")
     st.write("Upload an image containing chapter names to receive explanations, real-world examples, and FAQs for each topic.")
     # Session state initialization
-    if 'selected_example' not in st.session_state:
-        st.session_state.selected_example = None
+    if 'selected_uploadimage' not in st.session_state:
+        st.session_state.selected_uploadimage = None
     if 'analyze_clicked' not in st.session_state:
         st.session_state.analyze_clicked = False
-
+    if 'selected_entertext' not in st.session_state:
+        st.session_state.selected_entertext = False
+    
     tab_text,tab_upload, tab_camera = st.tabs([
         "📝 Enter Text",
         "📤 Upload Image",
