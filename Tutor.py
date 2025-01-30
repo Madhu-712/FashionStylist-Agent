@@ -78,6 +78,13 @@ def save_uploaded_file(uploaded_file):
 def main():
     st.title("📘 AI-Powered Tutor Agent")
     st.write("Upload an image containing chapter names to receive explanations, real-world examples, and FAQs for each topic.")
+    tab_upload, tab_camera = st.tabs([
+        "📤 Upload Image",
+        "📸 Take Photo"
+    ])
+
+    # Upload Image Tab
+    with tab_upload:
 
     uploaded_file = st.file_uploader(
         "Upload an image with 'chapter names' or 'queries'", 
