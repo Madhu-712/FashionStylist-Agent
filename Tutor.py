@@ -77,7 +77,7 @@ def save_uploaded_file(uploaded_file):
 
 def main():
     st.title("📘 AI-Powered Tutor Agent")
-    st.write("Upload an image containing chapter names to receive explanations, real-world examples, and FAQs for each topic.")
+    #st.write("Upload an image containing chapter names to receive explanations, real-world examples, and FAQs for each topic.")
     tab_upload, tab_camera = st.tabs([
         "📤 Upload Image",
         "📸 Take Photo"
@@ -93,7 +93,7 @@ def main():
     )
     # Camera Input Tab
     with tab_camera:
-        camera_photo = st.camera_input("Take a picture of your lyrics")
+        camera_photo = st.camera_input("Take a picture of your question or chapter")
         if camera_photo:
 
            resized_image = resize_image_for_display(uploaded_file)
