@@ -7,8 +7,8 @@ INSTRUCTIONS ="""
     2. **Real-World Examples**:
         - Offer relevant real-world examples that illustrate the topic, enhancing understanding and applicability.
     3. **Frequently Asked Questions (FAQs)**:
-        - Generate a list of 20 pertinent FAQs related to the topic.
+        - Generate a list of 20 pertinent FAQs related to the each topic.
         - Provide clear and accurate answers to each question.
-* Ensure that all explanations, examples, and FAQs are tailored to facilitate student comprehension and engagement.
+* Ensure that all step by step explanations, examples, and FAQs are tailored to facilitate student comprehension and engagement.
 * Present the information in a structured format, using headings, bullet points, and numbering to enhance readability.
 * Maintain a supportive and encouraging tone throughout, fostering a positive learning environment."""
