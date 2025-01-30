@@ -91,17 +91,21 @@ def main():
         type=["jpg", "jpeg", "png"],
         help="Ensure the image is clear and the text is legible."
     )
+    # Camera Input Tab
+    with tab_camera:
+        camera_photo = st.camera_input("Take a picture of your lyrics")
+        if camera_photo:
 
-    if uploaded_file:
-        resized_image = resize_image_for_display(uploaded_file)
-        st.image(resized_image, caption="Uploaded Image", use_container_width=False, width=MAX_IMAGE_WIDTH)
-        if st.button("📖 Generate Educational Content"):
-            temp_path = save_uploaded_file(uploaded_file)
-            analyze_image(temp_path)
-            os.unlink(temp_path)
-    else:
-        st.info("Please upload an image to proceed.")
-
+           resized_image = resize_image_for_display(uploaded_file)
+           st.image(resized_image, caption="Uploaded Image", use_container_width=False, width=MAX_IMAGE_WIDTH)
+           if st.button("📖 Generate Educational Content"):
+              temp_path = save_uploaded_file(uploaded_file)
+              analyze_image(temp_path)
+              os.unlink(temp_path)
+           else:
+              st.info("Please upload an image to proceed.")
+        
+    
 if __name__ == "__main__":
     st.set_page_config(
         page_title="AI-Powered Tutor Agent",
