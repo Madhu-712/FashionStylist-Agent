@@ -23,7 +23,7 @@ INSTRUCTIONS ="""
         - Offer relevant real-world examples that illustrate the topic, enhancing understanding and applicability.
     3. **Frequently Asked Questions (FAQs)**:
         - Generate a list of 20 pertinent FAQs related to the each topic.
-        - For Math related topic ensure the queries are more of problems and solve step wise .
+        - For Math related topic ensure the queries are more on math problems and solve step wise .(solve for 3x+5=90)
         - Provide clear and accurate answers to each question.
 * Ensure that all step by step explanations, examples, and FAQs are tailored to facilitate student comprehension and engagement.
 * Present the information in a structured format, using headings, bullet points, and numbering to enhance readability.
