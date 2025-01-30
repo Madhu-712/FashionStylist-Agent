@@ -72,6 +72,13 @@ def analyze_image(image_path):
             images=[image_path],
         )
         st.markdown(response.content)
+
+def save_uploaded_file(uploaded_file):
+    """Save the uploaded image to a temporary file."""
+    with NamedTemporaryFile(dir='.', suffix='.jpg', delete=False) as f:
+        f.write(uploaded_file.getbuffer())
+        return f.name
+
         
 def analyze_text(user_text):
     agent = get_agent()
@@ -82,11 +89,6 @@ def analyze_text(user_text):
         )
         st.markdown(response.content)
 
-def save_uploaded_file(uploaded_file):
-    """Save the uploaded image to a temporary file."""
-    with NamedTemporaryFile(dir='.', suffix='.jpg', delete=False) as f:
-        f.write(uploaded_file.getbuffer())
-        return f.name
 
 
 def main():
