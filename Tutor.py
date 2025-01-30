@@ -98,11 +98,11 @@ def main():
     if 'analyze_clicked' not in st.session_state:
         st.session_state.analyze_clicked = False
 
-  tab_text,tab_upload, tab_camera = st.tabs([
+    tab_text,tab_upload, tab_camera = st.tabs([
         "📝 Enter Text",
         "📤 Upload Image",
         "📸 Take Photo"
-    ])
+     ])
     # Upload text
     with tab_text:
         user_text = st.text_area(
