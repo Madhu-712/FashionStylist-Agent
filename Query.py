@@ -6,7 +6,7 @@ import streamlit as st
 import os
 from phi.agent import Agent
 from phi.model.google import Gemini
-from Prompts import SYSTEM_PROMPT, INSTRUCTIONS
+from Prompts import SYSTEM_PROMPTS, INSTRUCTIONS
 
 # Set environment variables for API keys
 os.environ['GOOGLE_API_KEY'] = st.secrets['GEMINI_KEY']
@@ -15,7 +15,7 @@ os.environ['GOOGLE_API_KEY'] = st.secrets['GEMINI_KEY']
 def get_agent():
     return Agent(
         model=Gemini(id="gemini-2.0-flash-exp"),
-        system_prompt=SYSTEM_PROMPT,
+        system_prompt=SYSTEM_PROMPTS,
         instructions=INSTRUCTIONS,
         markdown=True,
     )
