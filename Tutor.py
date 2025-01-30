@@ -131,9 +131,7 @@ def main():
               temp_path = save_text_to_temp_file(user_input)
               analyze_text(temp_path)
               os.unlink(temp_path)  # Clean up the temporary file after analysis
-           else:
-              st.warning("Please enter some text before clicking 'Analyze Text'.")
-        
+           
 
     
     # Upload Image Tab
