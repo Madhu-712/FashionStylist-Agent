@@ -80,26 +80,28 @@ def save_uploaded_file(uploaded_file):
         return f.name
 
 #Function to analyze the content of a text file
-def analyze_text_file(file_path):
+
+
+def analyze_text(text_path):
     agent = get_agent()
-    with st.spinner('Analyzing content...'):
-        with open(file_path, 'r') as file:
-            content = file.read()
-        response = agent.run(content)
+    with st.spinner('Analyzing text...'):
+        with open(text_path, 'r') as file:
+            text_content = file.read()
+        response = agent.run(
+            "Analyze the provided text",
+            text=text_content,
+        )
         st.markdown(response.content)
-
-
         
 
 
 # Function to save user input text to a temporary file
+
 def save_text_to_temp_file(text):
-    """Save the user input text to a temporary file."""
-    with NamedTemporaryFile(dir='.', suffix='.txt', delete=False, mode='w') as f:
-        f.write(text)
+    """Save the provided text to a temporary file."""
+    with NamedTemporaryFile(dir='.', suffix='.txt', delete=False) as f:
+        f.write(text.encode('utf-8'))
         return f.name
-
-
 
 def main():
     st.title("📘 AI-Powered Tutor Agent")
@@ -119,20 +121,21 @@ def main():
      ])
     # Upload text
     with tab_text:
-        user_text = st.text_area(
+        user_input = st.text_area(
             "Enter text to analyze:",
             placeholder="Type your text here...",
             height=200
         )
         if st.button("Analyze Text"):
-           if user_input.strip():
+           if user_input:
               temp_file_path = save_text_to_temp_file(user_input)
-              analyze_text(user_input)
-              os.unlink(temp_file_path)  # Clean up the temporary file after analysis
+              analyze_text(temp_path)
+              os.unlink(temp_path)  # Clean up the temporary file after analysis
            else:
               st.warning("Please enter some text before clicking 'Analyze Text'.")
         
 
+    
     # Upload Image Tab
     with tab_upload:
         uploaded_file = st.file_uploader(
