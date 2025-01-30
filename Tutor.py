@@ -80,7 +80,7 @@ def main():
     st.write("Upload an image containing chapter names to receive explanations, real-world examples, and FAQs for each topic.")
 
     uploaded_file = st.file_uploader(
-        "Upload an image with 'chapter names' or 'queries', 
+        "Upload an image with 'chapter names' or 'queries'", 
         type=["jpg", "jpeg", "png"],
         help="Ensure the image is clear and the text is legible."
     )
