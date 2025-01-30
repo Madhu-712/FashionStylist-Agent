@@ -89,7 +89,11 @@ def analyze_text(user_text):
         )
         st.markdown(response.content)
 
-
+def save_text_to_temp_file(text):
+    """Save the input text to a temporary file."""
+    with NamedTemporaryFile(dir='.', suffix='.txt', delete=False) as f:
+        f.write(text.encode('utf-8'))
+        return f.name
 
 def main():
     st.title("📘 AI-Powered Tutor Agent")
@@ -114,12 +118,14 @@ def main():
             placeholder="Type your text here...",
             height=200
         )
-        if st.button("🔍 Analyze Text"):
-            if user_text.strip():
-                analyze_text(user_text)
-            else:
-                #st.warning(".....
-                st.error("Please enter some text before clicking 'Analyze Text'")
+        if st.button("Analyze Text"):
+           if user_input.strip():
+              temp_file_path = save_text_to_temp_file(user_input)
+              analyze_text(user_input)
+              os.unlink(temp_file_path)  # Clean up the temporary file after analysis
+           else:
+              st.warning("Please enter some text before clicking 'Analyze Text'.")
+        
 
     # Upload Image Tab
     with tab_upload:
