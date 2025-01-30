@@ -79,21 +79,27 @@ def save_uploaded_file(uploaded_file):
         f.write(uploaded_file.getbuffer())
         return f.name
 
-        
-def analyze_text(user_text):
+#Function to analyze the content of a text file
+def analyze_text_file(file_path):
     agent = get_agent()
-    with st.spinner('Analyzing query text...'):
-        response = agent.run(
-            "Analyze the provided text",
-            inputs={"text": user_text},
-        )
+    with st.spinner('Analyzing content...'):
+        with open(file_path, 'r') as file:
+            content = file.read()
+        response = agent.run(content)
         st.markdown(response.content)
 
+
+        
+
+
+# Function to save user input text to a temporary file
 def save_text_to_temp_file(text):
-    """Save the input text to a temporary file."""
-    with NamedTemporaryFile(dir='.', suffix='.txt', delete=False) as f:
-        f.write(text.encode('utf-8'))
+    """Save the user input text to a temporary file."""
+    with NamedTemporaryFile(dir='.', suffix='.txt', delete=False, mode='w') as f:
+        f.write(text)
         return f.name
+
+
 
 def main():
     st.title("📘 AI-Powered Tutor Agent")
