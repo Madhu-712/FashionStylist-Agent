@@ -76,9 +76,16 @@ def save_uploaded_file(uploaded_file):
         f.write(uploaded_file.getbuffer())
         return f.name
 
+
 def main():
     st.title("📘 AI-Powered Tutor Agent")
-    #st.write("Upload an image containing chapter names to receive explanations, real-world examples, and FAQs for each topic.")
+    st.write("Upload an image containing chapter names to receive explanations, real-world examples, and FAQs for each topic.")
+    # Session state initialization
+    if 'selected_example' not in st.session_state:
+        st.session_state.selected_example = None
+    if 'analyze_clicked' not in st.session_state:
+        st.session_state.analyze_clicked = False
+
     tab_upload, tab_camera = st.tabs([
         "📤 Upload Image",
         "📸 Take Photo"
@@ -86,26 +93,25 @@ def main():
 
     # Upload Image Tab
     with tab_upload:
-
         uploaded_file = st.file_uploader(
-        "Upload an image with 'chapter names' or 'queries'", 
-        type=["jpg", "jpeg", "png"],
-        help="Ensure the image is clear and the text is legible."
-    )
-    # Camera Input Tab
-    with tab_camera:
-        camera_photo = st.camera_input("Take a picture of your question or chapter")
-        if camera_photo:
-
-           resized_image = resize_image_for_display(uploaded_file)
-           st.image(resized_image, caption="Uploaded Image", use_container_width=False, width=MAX_IMAGE_WIDTH)
-           if st.button("📖 Generate Educational Content"):
-              temp_path = save_uploaded_file(uploaded_file)
-              analyze_image(temp_path)
-              os.unlink(temp_path)
-           else:
-              st.info("Please upload an image to proceed.")
+            "Upload image of query or chapter names",
+            type=["jpg", "jpeg", "png"],
+            help="Upload a clear image of query or chapter names"
+        )
         
+        
+     # Camera Input Tab
+    with tab_camera:
+        camera_photo = st.camera_input("Take a picture of your query or chapter names")
+        if camera_photo:
+            resized_image = resize_image_for_display(camera_photo)
+            st.image(resized_image, caption="Captured Photo", use_container_width=False, width=MAX_IMAGE_WIDTH)
+            if st.button("Analyze Query", key="analyze_camera"):
+                temp_path = save_uploaded_file(camera_photo)
+                analyze_image(temp_path)
+                os.unlink(temp_path)
+
+
     
 if __name__ == "__main__":
     st.set_page_config(
