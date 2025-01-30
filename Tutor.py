@@ -128,7 +128,7 @@ def main():
         )
         if st.button("Analyze Text"):
            if user_input.strip():
-              temp_file_path = save_text_to_temp_file(user_input)
+              temp_path = save_text_to_temp_file(user_input)
               analyze_text(temp_path)
               os.unlink(temp_path)  # Clean up the temporary file after analysis
            else:
