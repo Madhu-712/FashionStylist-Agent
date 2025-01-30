@@ -128,7 +128,7 @@ def main():
             type=["jpg", "jpeg", "png"],
             help="Upload a clear image of query or chapter names"
         )
-         if uploaded_file:
+        if uploaded_file:
             resized_image = resize_image_for_display(uploaded_file)
             st.image(resized_image, caption="Uploaded Image", use_container_width=False, width=MAX_IMAGE_WIDTH)
             if st.button("🔍 Analyze Uploaded Image", key="analyze_upload"):
