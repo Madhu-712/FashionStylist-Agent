@@ -72,6 +72,15 @@ def analyze_image(image_path):
             images=[image_path],
         )
         st.markdown(response.content)
+        
+def analyze_text(user_text):
+    agent = get_agent()
+    with st.spinner('Analyzing query text...'):
+        response = agent.run(
+            "Analyze the provided text",
+            inputs={"text": user_text},
+        )
+        st.markdown(response.content)
 
 def save_uploaded_file(uploaded_file):
     """Save the uploaded image to a temporary file."""
@@ -89,10 +98,24 @@ def main():
     if 'analyze_clicked' not in st.session_state:
         st.session_state.analyze_clicked = False
 
-    tab_upload, tab_camera = st.tabs([
+  tab_text,tab_upload, tab_camera = st.tabs([
+        "📝 Enter Text",
         "📤 Upload Image",
         "📸 Take Photo"
     ])
+    # Upload text
+    with tab_text:
+        user_text = st.text_area(
+            "Enter text to analyze:",
+            placeholder="Type your text here...",
+            height=200
+        )
+        if st.button("🔍 Analyze Text"):
+            if user_text.strip():
+                analyze_text(user_text)
+            else:
+                #st.warning(".....
+                st.error("Please enter some text before clicking 'Analyze Text'")
 
     # Upload Image Tab
     with tab_upload:
