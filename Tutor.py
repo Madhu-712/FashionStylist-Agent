@@ -86,7 +86,7 @@ def main():
     # Upload Image Tab
     with tab_upload:
 
-    uploaded_file = st.file_uploader(
+        uploaded_file = st.file_uploader(
         "Upload an image with 'chapter names' or 'queries'", 
         type=["jpg", "jpeg", "png"],
         help="Ensure the image is clear and the text is legible."
