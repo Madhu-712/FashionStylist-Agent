@@ -21,7 +21,7 @@ INSTRUCTIONS = """
 * For each chapter:
     * Provide a concise explanation of the topic.
     * Offer real-world examples to illustrate the concepts.
-    * Generate 20 relevant FAQs along with their answers.
+    * Generate 20 relevant FAQs along with their answers (step by step solution to each of the FAQ's).
 * Present the information in a structured format using headings and bullet points for clarity.
 * Ensure the content is student-friendly and easy to understand.
 """
