@@ -52,7 +52,7 @@ def get_agent():
     """Initialize and cache the AI agent."""
     return Agent(
         model=Gemini(id="gemini-2.0-flash-exp"),
-        system_prompt=SYSTEM_PROMPT,
+        system_prompt=SYSTEM_PROMPTS,
         instructions=INSTRUCTIONS,
         tools=[TavilyTools(api_key=os.getenv("TAVILY_API_KEY"))],
         markdown=True,
