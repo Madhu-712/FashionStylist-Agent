@@ -26,29 +26,29 @@ def get_agent():
         markdown=True,
     )
 
-def analyze_text(text):
+def answer_query(text):
     agent = get_agent()
-    with st.spinner('Analyzing text...'):
+    with st.spinner('Answering query...'):
         try:
-            response = agent.run("Analyze the provided text", text=text)
+            response = agent.run("Answer the provided query", text=text)
             if response and response.content:
                 st.markdown(response.content)
             else:
                 st.error("No response received from the API.")
         except Exception as e:
-            st.error(f"Error analyzing text: {e}")
+            st.error(f"Error answe query: {e}")
 
 def main():
-    st.set_page_config(page_title="Tutor Agent", layout="wide", initial_sidebar_state="collapsed")
-    st.title("📘 Tutor Agent")
+    st.set_page_config(page_title="Google Agent", layout="wide", initial_sidebar_state="collapsed")
+    st.title("Google Agent")
 
-    user_input = st.text_area("Enter text for analysis:", placeholder="Type or paste the chapter content here...", height=200)
+    user_input = st.text_area("Enter queries:", placeholder="Type or paste the query.", height=200)
 
-    if st.button("Analyze Text"):
+    if st.button("Answer Text"):
         if user_input.strip():
             analyze_text(user_input)
         else:
-            st.warning("Please enter some text before clicking 'Analyze Text'.")
+            st.warning("Please enter some text before clicking 'Answer query'.")
 
 if __name__ == "__main__":
     main()
