@@ -126,8 +126,8 @@ def main():
         if st.button("Analyze Text"):
            if user_input.strip():
               analyze_text(user_input)
-        else:
-            st.warning("Please enter some text before clicking 'Analyze Text'.")
+        #else:
+           # st.warning("Please enter some text before clicking 'Analyze Text'.")
 
 
         
