@@ -46,9 +46,9 @@ def main():
 
     if st.button("Answer Text"):
         if user_input.strip():
-            analyze_text(user_input)
+            answer_query(user_input)
         else:
-            st.warning("Please enter some text before clicking 'Answer query'.")
+            st.warning("Please enter some text before clicking 'Answer Text'.")
 
 if __name__ == "__main__":
     main()
