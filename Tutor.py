@@ -95,6 +95,21 @@ def analyze_text(text):
 
 
 
+def main():
+    st.title("📘 Tutor Agent")
+
+    # Text input area
+    user_input = st.text_area(
+        "Enter text for analysis:",
+        placeholder="Type or paste the chapter content here...",
+        height=200
+    )
+
+    if st.button("Analyze Text"):
+        if user_input.strip():
+            analyze_text(user_input)
+        else:
+            st.warning("Please enter some text before clicking 'Analyze Text'.")
 
 
 
@@ -118,16 +133,19 @@ def main():
     # Upload text
     with tab_text:
         user_input = st.text_area(
-            "Enter text to analyze:",
-            placeholder="Type your text here...",
-            height=200
-        )
+        "Enter text for analysis:",
+        placeholder="Type or paste the chapter content here...",
+        height=200
+    )
+
         if st.button("Analyze Text"):
            if user_input.strip():
-              temp_path = save_text_to_temp_file(user_input)
-              analyze_text(temp_path)
-              os.unlink(temp_path)  # Clean up the temporary file after analysis
+              analyze_text(user_input)
+        else:
+            st.warning("Please enter some text before clicking 'Analyze Text'.")
 
+
+        
 
 
     
