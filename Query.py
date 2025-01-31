@@ -20,7 +20,7 @@ os.environ['GOOGLE_API_KEY'] = st.secrets.get('GEMINI_KEY', '')
 @st.cache_resource(show_spinner=False)
 def get_agent():
     return Agent(
-        model=Gemini(id="gemini-2.0-flash-exp"),
+        model=Gemini(id="gemini-1.5-flash"),
         system_prompt=SYSTEM_PROMPTS,
         instructions=INSTRUCTIONS,
         markdown=True,
