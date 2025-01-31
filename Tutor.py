@@ -110,6 +110,7 @@ def main():
     if 'selected_entertext' not in st.session_state:
         st.session_state.selected_entertext = False
 
+    # Text input area
     user_input = st.text_area(
         "Enter text for analysis:",
         placeholder="Type or paste the chapter content here...",
@@ -117,11 +118,12 @@ def main():
     )
 
     if st.button("Analyze Text"):
-       if user_input.strip():
-              analyze_text(user_input)
-       else:
-          st.warning("Please enter some text before clicking 'Analyze Text'.")
+        if user_input.strip():
+            analyze_text(user_input)
+        else:
+            st.warning("Please enter some text before clicking 'Analyze Text'.")
 
+    
 
     tab_upload, tab_camera = st.tabs([
         #"📝 Enter Text",
