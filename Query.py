@@ -14,7 +14,7 @@ except ImportError:
 if 'GEMINI_KEY' not in st.secrets:
     st.error("Google API Key is missing in Streamlit secrets!")
 
-# Set API key
+# Set API key  (Better to do this outside the cached function)
 os.environ['GOOGLE_API_KEY'] = st.secrets.get('GEMINI_KEY', '')
 
 @st.cache_resource(show_spinner=False)
@@ -36,13 +36,14 @@ def answer_query(text):
             else:
                 st.error("No response received from the API.")
         except Exception as e:
-            st.error(f"Error answe query: {e}")
+            st.error(f"Error answering query: {e}")
+
 
 def main():
     st.set_page_config(page_title="Google Agent", layout="wide", initial_sidebar_state="collapsed")
     st.title("Google Agent")
 
-    user_input = st.text_area("Enter queries:", placeholder="Type or paste the query.", height=200)
+    user_input = st.text_area("Enter queries:", value="", placeholder="Type or paste the query.", height=200) # Key change: added value=""
 
     if st.button("Answer Text"):
         if user_input.strip():
@@ -52,6 +53,14 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
+
+
+
 
 
     
