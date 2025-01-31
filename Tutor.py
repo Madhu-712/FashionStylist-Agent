@@ -82,26 +82,22 @@ def save_uploaded_file(uploaded_file):
 #Function to analyze the content of a text file
 
 
-def analyze_text(text_path):
+
+def analyze_text(text):
     agent = get_agent()
     with st.spinner('Analyzing text...'):
-        with open(text_path, 'r') as file:
-            text_content = file.read()
         response = agent.run(
             "Analyze the provided text",
-            text=text_content,
+            text=text,
         )
         st.markdown(response.content)
-        
 
 
-# Function to save user input text to a temporary file
 
-def save_text_to_temp_file(text):
-    """Save the provided text to a temporary file."""
-    with NamedTemporaryFile(dir='.', suffix='.txt', delete=False) as f:
-        f.write(text.encode('utf-8'))
-        return f.name
+
+
+
+
 
 def main():
     st.title("📘 AI-Powered Tutor Agent")
@@ -131,7 +127,8 @@ def main():
               temp_path = save_text_to_temp_file(user_input)
               analyze_text(temp_path)
               os.unlink(temp_path)  # Clean up the temporary file after analysis
-           
+
+
 
     
     # Upload Image Tab
