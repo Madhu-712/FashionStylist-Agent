@@ -95,21 +95,6 @@ def analyze_text(text):
 
 
 
-def main():
-    st.title("📘 Tutor Agent")
-
-    # Text input area
-    user_input = st.text_area(
-        "Enter text for analysis:",
-        placeholder="Type or paste the chapter content here...",
-        height=200
-    )
-
-    if st.button("Analyze Text"):
-        if user_input.strip():
-            analyze_text(user_input)
-        else:
-            st.warning("Please enter some text before clicking 'Analyze Text'.")
 
 
 
@@ -141,8 +126,8 @@ def main():
         if st.button("Analyze Text"):
            if user_input.strip():
               analyze_text(user_input)
-        else:
-            st.warning("Please enter some text before clicking 'Analyze Text'.")
+           else:
+              st.warning("Please enter some text before clicking 'Analyze Text'.")
 
 
         
