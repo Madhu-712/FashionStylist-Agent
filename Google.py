@@ -20,11 +20,11 @@ agent = Agent(
         model=Gemini(id="gemini-1.5-flash"),
         system_prompt=SYSTEM_PROMPTS,
         instructions=INSTRUCTIONS,
-    tools=[TavilyTools(api_key=os.getenv("TAVILY_API_KEY"))],
-    description="You are a search agent that helps users find the info from web",
+        tools=[TavilyTools(api_key=os.getenv("TAVILY_API_KEY"))],
+    #description="You are a search agent that helps users find the info from web",
     
-    show_tool_calls=True,
-    debug_mode=True,
+        show_tool_calls=True,
+        debug_mode=True,
 )
 
 st.title("🔎🔍🌐Google search Agent")
