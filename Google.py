@@ -6,8 +6,9 @@ import os
 # Define system prompt and instructions
 
 SYSTEM_PROMPTS="""You are a google search agent that helps users search the information from the web and give response in markdown format.""",
-    
-
+INSTRUCTIONS=""" Search a topic given by the user, respond with 4 latest news items about that topic.",
+        Give important resources by citing source,web links,book recommendations etc.""",
+        
 agent = Agent(
     tools=[GoogleSearch()],
     description="You are a news agent that helps users find the latest news.",
@@ -21,7 +22,7 @@ agent = Agent(
 )
 
 
-st.title("News Agent")
+st.title("🔎🔍🌐Google search Agent")
 
 user_input = st.text_input("Enter a search topic:", "Mistral AI")
 
