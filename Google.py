@@ -10,7 +10,12 @@ from phi.tools.tavily import TavilyTools
 SYSTEM_PROMPTS="""You are a google search agent that helps users search the information from the web and give response in markdown format.""",
 INSTRUCTIONS=""" Search a topic given by the user, respond with 4 latest news items about that topic.",
         Give important resources by citing source,web links,book recommendations etc.""",
+
         
+# Set API keys from Streamlit secrets
+os.environ['TAVILY_API_KEY'] = st.secrets['TAVILY_KEY']
+os.environ['GOOGLE_API_KEY'] = st.secrets['GEMINI_KEY']
+
 agent = Agent(
         model=Gemini(id="gemini-1.5-flash"),
         system_prompt=SYSTEM_PROMPTS,
@@ -21,10 +26,6 @@ agent = Agent(
     show_tool_calls=True,
     debug_mode=True,
 )
-# Set API keys from Streamlit secrets
-os.environ['TAVILY_API_KEY'] = st.secrets['TAVILY_KEY']
-os.environ['GOOGLE_API_KEY'] = st.secrets['GEMINI_KEY']
-
 
 st.title("🔎🔍🌐Google search Agent")
 
