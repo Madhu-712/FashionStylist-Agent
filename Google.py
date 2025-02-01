@@ -19,4 +19,20 @@ agent = Agent(
     show_tool_calls=True,
     debug_mode=True,
 )
+
+
+st.title("News Agent")
+
+user_input = st.text_input("Enter a search topic:", "Mistral AI")
+
+if st.button("Get info):
+    if user_input:  # Check if the user has entered something
+        try:
+            with st.spinner("Searching for info..."):
+                response = agent.print_response(user_input, markdown=True)
+                st.markdown(response)
+        except Exception as e:
+            st.error(f"An error occurred: {e}")
+    else:
+        st.warning("Please enter a search topic.")
 agent.print_response("Mistral AI", markdown=True)
