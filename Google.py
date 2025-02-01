@@ -10,13 +10,12 @@ INSTRUCTIONS=""" Search a topic given by the user, respond with 4 latest news it
         Give important resources by citing source,web links,book recommendations etc.""",
         
 agent = Agent(
+        model=Gemini(id="gemini-1.5-flash"),
+        system_prompt=SYSTEM_PROMPTS,
+        instructions=INSTRUCTIONS,
     tools=[GoogleSearch()],
-    description="You are a news agent that helps users find the latest news.",
-    instructions=[
-        "Given a topic by the user, respond with 4 latest news items about that topic.",
-        "Search for 10 news items and select the top 4 unique items.",
-        "Search in English and in French.",
-    ],
+    description="You are a search agent that helps users find the info from web",
+    
     show_tool_calls=True,
     debug_mode=True,
 )
