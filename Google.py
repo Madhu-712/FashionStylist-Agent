@@ -1,5 +1,12 @@
 from phi.agent import Agent
 from phi.tools.googlesearch import GoogleSearch
+import streamlit as st
+import os
+
+# Define system prompt and instructions
+
+SYSTEM_PROMPTS="""You are a google search agent that helps users search the information from the web and give response in markdown format.""",
+    
 
 agent = Agent(
     tools=[GoogleSearch()],
