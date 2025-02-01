@@ -42,5 +42,5 @@ if st.button("Get info"):
     else:
         st.warning("Please enter a search topic.")
 #agent.print_response(" ", markdown=True)
-
+agent.print_response()
 
