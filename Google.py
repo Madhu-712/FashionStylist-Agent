@@ -34,10 +34,13 @@ if st.button("Get info"):
     if user_input:  # Check if the user has entered something
         try:
             with st.spinner("Searching for info..."):
-                response = agent.print_response(user_input, markdown=True)
-                st.markdown(response)
+               with st.empty():
+                    response = agent.print_response(user_input, markdown=True)
+                    st.markdown(response)
         except Exception as e:
             st.error(f"An error occurred: {e}")
     else:
         st.warning("Please enter a search topic.")
-agent.print_response(" ", markdown=True)
+#agent.print_response(" ", markdown=True)
+
+
