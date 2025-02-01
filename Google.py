@@ -28,7 +28,7 @@ agent = Agent(
 
 st.title("🔎🔍🌐Google search Agent")
 
-user_input = st.text_input("Enter a search topic:", "Mistral AI")
+user_input = st.text_input("Enter a search topic:", " ")
 
 if st.button("Get info"):
     if user_input:  # Check if the user has entered something
