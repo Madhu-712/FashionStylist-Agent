@@ -7,9 +7,8 @@ from phi.tools.tavily import TavilyTools
 
 # Define system prompt and instructions
 
-SYSTEM_PROMPTS="""You are a google search agent that helps users search the information from the web and give response in markdown format.""",
-INSTRUCTIONS=""" Search a topic given by the user, respond with 4 latest news items about that topic.",
-        Give important resources by citing source,web links,book recommendations etc.""",
+SYSTEM_PROMPTS="""You are a google search agent that helps users search the information from the web and give response in markdown format."""
+INSTRUCTIONS=""" Search a topic given by the user, respond with 4 latest news items about that topic.Give important resources by citing source,web links,book recommendations etc"""
 
         
 # Set API keys from Streamlit secrets
