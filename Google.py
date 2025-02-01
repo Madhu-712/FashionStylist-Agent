@@ -36,13 +36,13 @@ if st.button("Get info"):
             with st.spinner("Searching for info..."):
                with st.empty():
                     response = agent.run(user_input, markdown=True)
-                    st.markdown(response)
+                    if response:  # Check if the agent returned a response
+                       st.markdown(response["output"]) # Assuming 'output' key holds the Markdown response
+                    else:
+                       st.warning("Agent failed to produce a response.")
         except Exception as e:
             st.error(f"An error occurred: {e}")
     else:
-        st.warning("Please enter a search topic.")
-#agent.print_response("climatechange", markdown=True)
-#agent.print_response()
+        st.warning("Please enter a news topic.")
 
-
-
+                    
