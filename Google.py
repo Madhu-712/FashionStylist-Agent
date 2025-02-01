@@ -26,7 +26,7 @@ st.title("🔎🔍🌐Google search Agent")
 
 user_input = st.text_input("Enter a search topic:", "Mistral AI")
 
-if st.button("Get info):
+if st.button("Get info"):
     if user_input:  # Check if the user has entered something
         try:
             with st.spinner("Searching for info..."):
