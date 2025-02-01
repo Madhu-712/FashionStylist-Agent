@@ -2,6 +2,8 @@ from phi.agent import Agent
 from phi.tools.googlesearch import GoogleSearch
 import streamlit as st
 import os
+from phi.model.google import Gemini
+from phi.tools.tavily import TavilyTools
 
 # Define system prompt and instructions
 
@@ -19,6 +21,9 @@ agent = Agent(
     show_tool_calls=True,
     debug_mode=True,
 )
+# Set API keys from Streamlit secrets
+os.environ['TAVILY_API_KEY'] = st.secrets['TAVILY_KEY']
+os.environ['GOOGLE_API_KEY'] = st.secrets['GEMINI_KEY']
 
 
 st.title("🔎🔍🌐Google search Agent")
