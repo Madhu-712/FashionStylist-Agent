@@ -36,10 +36,8 @@ if st.button("Get info"):
             with st.spinner("Searching for info..."):
                with st.empty():
                     response = agent.run(user_input, markdown=True)
-                    if response:  # Check if the agent returned a response
-                       st.markdown(response["output"]) # Assuming 'output' key holds the Markdown response
-                    else:
-                       st.warning("Agent failed to produce a response.")
+                    st.markdown(response)
+                       
         except Exception as e:
             st.error(f"An error occurred: {e}")
     else:
