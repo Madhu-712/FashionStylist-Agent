@@ -40,4 +40,4 @@ if st.button("Get info"):
             st.error(f"An error occurred: {e}")
     else:
         st.warning("Please enter a search topic.")
-agent.print_response("Mistral AI", markdown=True)
+#agent.print_response("Mistral AI", markdown=True)
