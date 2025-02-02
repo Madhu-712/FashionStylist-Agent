@@ -4,7 +4,7 @@ import streamlit as st
 import os
 from phi.model.google import Gemini
 from phi.tools.tavily import TavilyTools
-from phi.tools.duckduckgo import DuckDuckGo
+#from phi.tools.duckduckgo import DuckDuckGo
 
 
 
