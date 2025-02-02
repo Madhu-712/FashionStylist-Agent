@@ -4,6 +4,9 @@ import streamlit as st
 import os
 from phi.model.google import Gemini
 from phi.tools.tavily import TavilyTools
+from phi.tools.duckduckgo import DuckDuckGo
+
+
 
 # Define system prompt and instructions
 
@@ -22,7 +25,7 @@ agent = Agent(
         model=Gemini(id="gemini-1.5-flash"),
         system_prompt=SYSTEM_PROMPTS,
         instructions=INSTRUCTIONS,
-        tools=[TavilyTools(api_key=os.getenv("TAVILY_API_KEY"))],
+        tools=[DuckDuckGo,TavilyTools(api_key=os.getenv("TAVILY_API_KEY"))],
     #description="You are a search agent that helps users find the info from web",
     
         show_tool_calls=True,
