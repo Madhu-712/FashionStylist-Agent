@@ -106,8 +106,7 @@ def main():
    tab_text, tab_upload, tab_camera = st.tabs([
         "📝 Enter Text",
         "📤 Upload Image",
-        "📸 Take Photo"
-    ])
+        "📸 Take Photo" ])
     
     with tab_text:
           user_input = st.text_area(
