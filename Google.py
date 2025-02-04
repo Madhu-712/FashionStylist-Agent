@@ -12,9 +12,9 @@ from phi.tools.tavily import TavilyTools
 
 SYSTEM_PROMPTS="""*You are a google search gpt agent that helps users search the information from the web and give response in markdown format."""
 INSTRUCTIONS=""" 
-*Search a topic given by the user, respond with 4 latest news items about that topic.
-*Cite source of the response.
-*Give alternate web links,book recommendations ,resources etc for more in depth nuances on the topic."""
+*Search a topic given by the user, respond with latest news/info .
+*Cite source of the response.(for credibility)
+*Give alternate web sources (eg. www.bbc.com,wikipedia. com),book recommendations(eg.'O Henry'),resources(eg.podcast link,course page,apps,research paper,youtube links,image links)etc for more in depth nuances on the topic."""
 
         
 # Set API keys from Streamlit secrets
