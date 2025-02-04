@@ -107,14 +107,14 @@ def main():
         "📝 Enter Text",
         "📤 Upload Image",
         "📸 Take Photo"
-     ])
+    ])
     
     with tab_text:
-         user_input = st.text_area(
+          user_input = st.text_area(
          "Enter text for analysis:",
           placeholder="Type or paste the chapter content here...",
           height=200
-     )
+          )
 
     if st.button("Get Answer"):
          if user_input:  # Check if the user has entered something
