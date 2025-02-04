@@ -103,7 +103,7 @@ def main():
 
     
 
-   tab_text, tab_upload, tab_camera = st.tabs([
+tab_text, tab_upload, tab_camera = st.tabs([
         "📝 Enter Text",
         "📤 Upload Image",
         "📸 Take Photo" ])
