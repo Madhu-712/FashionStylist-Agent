@@ -117,19 +117,22 @@ def main():
         height=200
     )
 ###
+
+
+    
     
     if st.button("Get Answer"):
-    if user_input:  # Check if the user has entered something
-        try:
-            with st.spinner("Searching for info..."):
-               with st.empty():
-                    response = agent.run(user_input, markdown=True)
-                    st.markdown(response)
+       if user_input:  # Check if the user has entered something
+          try:
+              with st.spinner("Searching for info..."):
+                   with st.empty():
+                        response = agent.run(user_input, markdown=True)
+                        st.markdown(response)
                        
-        except Exception as e:
-            st.error(f"An error occurred: {e}")
-    else:
-        st.warning("Please enter a news topic.")
+          except Exception as e:
+                 st.error(f"An error occurred: {e}")
+       else:
+            st.warning("Please enter a news topic.")
 
     
 
