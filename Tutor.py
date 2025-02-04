@@ -79,18 +79,6 @@ def save_uploaded_file(uploaded_file):
         f.write(uploaded_file.getbuffer())
         return f.name
 
-#Function to analyze the content of a text file
-
-
-
-#def analyze_text(text):
-    #agent = get_agent()
-   # with st.spinner('Analyzing text...'):
-       # response = agent.run(
-          #  "Analyze the provided text",
-           # text=text,
-       # )
-        #st.markdown(response.content)
 
 
 
