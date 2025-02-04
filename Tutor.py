@@ -87,6 +87,7 @@ def save_uploaded_file(uploaded_file):
 
 
 
+
 def main():
     st.title("📘 AI-Powered Tutor Agent")
     st.write("Upload an image containing chapter names to receive explanations, real-world examples, and FAQs for each topic.")
@@ -98,38 +99,35 @@ def main():
     if 'selected_entertext' not in st.session_state:
         st.session_state.selected_entertext = False
 
-    # Text input area
-    user_input = st.text_area(
-        "Enter text for analysis:",
-        placeholder="Type or paste the chapter content here...",
-        height=200
-    )
-###
-
-
     
-    
-    if st.button("Get Answer"):
-       if user_input:  # Check if the user has entered something
-          try:
-              with st.spinner("Searching for info..."):
-                   with st.empty():
-                        response = agent.run(user_input, markdown=True)
-                        st.markdown(response)
-                       
-          except Exception as e:
-                 st.error(f"An error occurred: {e}")
-       else:
-            st.warning("Please enter a news topic.")
 
     
 
-    tab_upload, tab_camera = st.tabs([
-        #"📝 Enter Text",
+   tab_text, tab_upload, tab_camera = st.tabs([
+        "📝 Enter Text",
         "📤 Upload Image",
         "📸 Take Photo"
      ])
     
+    with tab_text:
+         user_input = st.text_area(
+         "Enter text for analysis:",
+          placeholder="Type or paste the chapter content here...",
+          height=200
+     )
+
+    if st.button("Get Answer"):
+         if user_input:  # Check if the user has entered something
+            try:
+                with st.spinner("Searching for info..."):
+                      with st.empty():
+                            response = agent.run(user_input, markdown=True)
+                            st.markdown(response)
+                       
+            except Exception as e:
+                   st.error(f"An error occurred: {e}")
+         else:
+              st.warning("Please enter a topic.")
 
 
     
