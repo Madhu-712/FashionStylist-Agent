@@ -116,12 +116,20 @@ def main():
         placeholder="Type or paste the chapter content here...",
         height=200
     )
-
-    if st.button("Analyze Text"):
-        if user_input.strip():
-            analyze_text(user_input)
-        else:
-            st.warning("Please enter some text before clicking 'Analyze Text'.")
+###
+    
+    if st.button("Get Answer"):
+    if user_input:  # Check if the user has entered something
+        try:
+            with st.spinner("Searching for info..."):
+               with st.empty():
+                    response = agent.run(user_input, markdown=True)
+                    st.markdown(response)
+                       
+        except Exception as e:
+            st.error(f"An error occurred: {e}")
+    else:
+        st.warning("Please enter a news topic.")
 
     
 
